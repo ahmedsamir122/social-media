@@ -250,7 +250,6 @@ header form input[type="submit"]{
     position: relative;
     overflow: hidden;
     min-height: 138px;
-    border: 1px solid red ;
 }
 .img-story-users p{
     color: white;
@@ -389,8 +388,120 @@ header form input[type="submit"]{
     padding-top: 0.6em;
     font-size: 0.8em;
 }
+/* ================ end middle ============ */
 /* =============START right =========== */
 .right {
     flex-basis: 20%;
     min-height: 100vh;
+}
+.messages{
+    background-color: white;
+    border-radius: 10px;
+    padding: 1em 0.7em;
+}
+.messages-top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1em;
+}
+.messages-top h3{
+    font-size: 1em;
+}
+.messages-top i{
+    font-size: 1em;
+}
+.messages-input{
+    position: relative;
+    margin-bottom: 1em;
+}
+.messages-input input{
+    width: 100%;
+    padding: 0.7em 0.2em 0.7em 4em;
+    font-size: 0.75em;
+    border-radius: 10em;
+    background-color: rgb(243, 241, 241);
+    border: none;
+}
+.messages-input input:focus{
+    outline: none;
+}
+.messages-input i{
+    position: absolute;
+    left: 0.7em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.messages-filter{
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    margin-bottom: 1em;
+    border-bottom: 1.5px solid rgb(243, 241, 241);
+}
+.messages-filter li{
+    height: 30px;
+}
+.messages-filter h3{
+    font-size: 0.75em;
+    /* border: 1px solid green; */
+    height: 30px;
+}
+.messages-filter li.active{
+    border-bottom: 1.5px solid black;
+}
+.messages-in-name{
+    display: flex;
+    padding-bottom: 1em;
+    position: relative;
+}
+.messages-in-name .active{
+    position: absolute;
+    width: 0.6em;
+    height: 0.6em;
+    border-radius: 50%;
+    background-color: green;
+    left: 1.5em;
+    top: 1.5em;
+}
+.messages-in-name img{
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+.message-info {
+    padding-left: 1em;
+}
+.messages-in-name h3{
+    font-size: 0.75em;
+}
+.messages-in-name p{
+    font-size: 0.6em;
+}
+/* =========== right request ========== */
+.right > h3 {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    color: rgb(95, 92, 92);
+}
+.request {
+    background-color: white;
+    padding-top: 1em;
+    padding-left: 1em;
+    border-radius: 7px;
+    margin-bottom: 1em;
+}
+.right .buttons {
+    display: flex;
+    padding-bottom: 1em;
+    justify-content: flex-start;
+    gap: 2em;
+}
+.right .buttons button{
+    padding: 0.5em 1.5em;
+    border-radius: 5em;
+    border: none;
+}
+.right .buttons button.active{
+    background-color: blue;
+    color: white;
 }
