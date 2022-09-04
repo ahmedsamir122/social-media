@@ -62,23 +62,11 @@ header form {
     position: relative;
     width: 75%;
 }
-header form i{
-    position: absolute;
-    left: 7.2em;
-}
-header form input[type="text"]{
-    width: 60%;
-    font-size: 1em;
-    padding-left: 3em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    border-radius: 2em;
-    border: none;
-    background-color: rgb(243, 241, 241);
-}
+
 header form input::placeholder{
     color: blue;
     opacity: 50%;
+    font-size: 0.7em;
 }
 header form input[type="text"]:focus{
 outline: none;
@@ -87,7 +75,7 @@ header form input[type="submit"]{
     font-size: 1em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    margin-left:12em;
+    margin-left:6em;
     border-radius: 2em;
     padding-left: 1em;
     padding-right: 1em;
@@ -99,6 +87,7 @@ header form input[type="submit"]{
     header form input[type="text"]{
         display: none;
     }
+    
     header form i{
         display: none;
     }
@@ -112,15 +101,53 @@ header form input[type="submit"]{
 
     }
 }
- @media(min-width:768px){
+ @media(min-width:992px) {
+    header form input[type="text"]{
+        width: 60%;
+        font-size: 1em;
+        padding-left: 3em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        border-radius: 2em;
+        border: none;
+        background-color: rgb(243, 241, 241);
+    }
+    header form {
+        padding-left: 6.5em;
+    }
+    header form i{
+        position: absolute;
+        left: 7.2em;
+    }
+}
+ @media(min-width:768px) and (max-width:991px){
+    header form input::placeholder{       
+        font-size: 0.75em;
+    }
+    header form {
+        text-align: center;
+        width: 70%;
+    }
+    header form input[type="text"]{
+        width: 100%;
+        font-size: 0.8em;
+        padding-left: 3em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        border-radius: 2em;
+        border: none;
+        background-color: rgb(243, 241, 241);
+    }
+    header form i{
+        position: absolute;
+        left: 1em;
+    }
+}
+ @media(min-width:768px) {
     header form {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-left: 6.5em;
-    }
-    header form input[type="text"]{
-        width: 80%;
     }
 }
 /* =========== end header ================= */
@@ -130,19 +157,20 @@ header form input[type="submit"]{
     padding-top: 2em;
     background-color: rgb(243, 241, 241);
 }
-.main .container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+
+
+@media(min-width:768px){
+    .main .container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
 }
 /* ================= left ===================== */
-.left {
-    flex-basis: 25%;
-}
+
+
 .acc-name {
     border-radius: 10px;
-    display: flex;
-    align-items: center;
     padding: 1em;
     background-color: white;
     margin-bottom: 1em;
@@ -166,11 +194,7 @@ header form input[type="submit"]{
     overflow: hidden;
     margin-bottom: 1em;
 }
-.toolbar {
-    display: flex;
-    padding: 1em 2em;
-    position: relative;
-}
+
 .toolbar.active {
     background-color: rgb(243, 241, 241);
 }
@@ -183,11 +207,11 @@ header form input[type="submit"]{
     height: 100%;
     width: 4px;
 }
-.toolbar span{
+/* .toolbar span{
     padding-left: 2em;
     color: black;
     font-weight: 500;
-}
+} */
 .toolbar i{
     font-size: 1.3em;
     color: rgb(151, 142, 142);
@@ -231,6 +255,87 @@ header form input[type="submit"]{
     border-radius: 5em;
     border: none;
     cursor: pointer;
+}
+@media(min-width:992px){
+    .acc-name {
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        padding: 1em;
+        background-color: white;
+        margin-bottom: 1em;
+    }
+    .left {
+        flex-basis: 25%;
+    }
+    .toolbar span{
+        padding-left: 2em;
+        color: black;
+        font-weight: 500;
+    }
+    .toolbar {
+        display: flex;
+        padding: 1em 2em;
+        position: relative;
+    }
+}
+@media(min-width:768px) and (max-width:991px){
+    .acc-name {
+        display: none;
+    }
+    .left {
+        flex-basis: 8%;
+    }
+    .toolbar span{
+        display: none;
+    }
+    .toolbar {
+        display: flex;
+        padding: 1em ;
+        position: relative;
+        justify-content: center;
+    }
+    .left button {
+        display: none;
+    }
+}
+@media(min-width:768px){
+    /* .acc-name {
+        display: none;
+    } */
+    .toolbar span{
+        padding-left: 2em;
+        color: black;
+        font-weight: 500;
+    }
+    
+}
+@media(max-width:767px){
+    .acc-name {
+        display: none;
+
+    }
+    .left {
+       position: fixed;
+       right: 0;
+       z-index: 3;
+       width: 3em;
+    }
+    .toolbar {
+        display: flex;
+        justify-content: center;
+    }
+    .toolbar span{
+        display: none;
+    }
+    .toolbar {
+        display: flex;
+        padding: 0.7em ;
+        position: relative;
+    }
+    .left button {
+        display: none;
+    }
 }
 /* ============= end left ================= */
 /* ================ start middle =============== */
@@ -394,6 +499,11 @@ header form input[type="submit"]{
     flex-basis: 20%;
     min-height: 100vh;
 }
+@media(max-width:767px){
+    .right{
+        display: none;
+    }
+}
 .messages{
     background-color: white;
     border-radius: 10px;
@@ -443,7 +553,6 @@ header form input[type="submit"]{
 }
 .messages-filter h3{
     font-size: 0.75em;
-    /* border: 1px solid green; */
     height: 30px;
 }
 .messages-filter li.active{
@@ -505,3 +614,4 @@ header form input[type="submit"]{
     background-color: blue;
     color: white;
 }
+/* =========== end right ============ */
