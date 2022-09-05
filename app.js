@@ -4,8 +4,14 @@ const noteNum = document.querySelector('#noteNum');
 const msgNum = document.querySelector('#msgNum');
 const noteContent = document.querySelector('.note-content');
 const inputMsg = document.querySelector('.messages-input input');
-const msgRows = document.querySelectorAll('.messages-in-name')
-const inputNames = document.querySelectorAll('.messages-in h3')
+const msgRows = document.querySelectorAll('.messages-in-name');
+const inputNames = document.querySelectorAll('.messages-in h3');
+const overlay = document.querySelector('.overlay');
+const setting = document.querySelector('.setting');
+const settingFont = document.querySelector('.setting-font');
+const settingColors = document.querySelector('.setting-colors');
+const settingBackground = document.querySelector('.setting-background');
+
 console.log(inputNames);
 inputNames.forEach(name => {
     console.log(name.textContent)
@@ -19,13 +25,19 @@ leftContainer.addEventListener('click', (e) => {
         tool.classList.remove('active');
     })
     click.classList.add('active');
-    noteContent.classList.remove('active');
-    console.log(click);
-
-    if(e.target.closest('#noteNum')){
-        noteContent.classList.toggle('active');
+    if(!click.classList.contains('sort')){
+        noteContent.classList.remove('active');
     }
 
+
+    if(click.classList.contains('sort')){
+        noteContent.classList.toggle('active');
+    }
+    
+    if(click.classList.contains('setting-sort')){
+        setting.classList.add('active');
+        overlay.classList.add('active');
+    }
     if(e.target.closest('#noteNum') && document.querySelector('#num'))
     noteNum.querySelector('#num').remove();
 
@@ -43,3 +55,52 @@ inputMsg.addEventListener('input', (e) => {
     })
 })
 
+overlay.addEventListener('click', (e) => {
+    setting.classList.remove('active');
+    overlay.classList.remove('active');
+})
+
+settingFont.addEventListener('click', (e) => {
+    const click = e.target.closest('span');
+    if(!click) return;
+    document.querySelectorAll('.setting-font span').forEach(span => {
+        span.classList.remove('active');
+    })
+    click.classList.add('active');
+    if(e.target.classList.contains('font--10'))
+    document.querySelector('body').style.fontSize='10px';
+    if(e.target.classList.contains('font--13'))
+    document.querySelector('body').style.fontSize='13px';
+    if(e.target.classList.contains('font--16'))
+    document.querySelector('body').style.fontSize='16px';
+    if(e.target.classList.contains('font--19'))
+    document.querySelector('body').style.fontSize='19px';
+    if(e.target.classList.contains('font--22'))
+    document.querySelector('body').style.fontSize='22px';
+})
+settingColors.addEventListener('click', (e) => {
+    const click = e.target.closest('span');
+    if(!click) return;
+    document.querySelectorAll('.setting-colors span').forEach(span => {
+        span.classList.remove('active');
+    })
+    click.classList.add('active');
+    if(e.target.classList.contains('color--blue'))
+    document.documentElement.style.setProperty('--main-color','blue');
+    if(e.target.classList.contains('color--yellow'))
+    document.documentElement.style.setProperty('--main-color','yellow');
+    if(e.target.classList.contains('color--orange'))
+    document.documentElement.style.setProperty('--main-color','rgb(255, 102, 0)');
+    if(e.target.classList.contains('color--green'))
+    document.documentElement.style.setProperty('--main-color','rgb(9, 255, 0)');
+    if(e.target.classList.contains('color--lightBlue'))
+    document.documentElement.style.setProperty('--main-color','rgb(0, 238, 255)');
+})
+settingBackground.addEventListener('click', (e) => {
+    const click = e.target.closest('.color-background');
+    if(!click) return;
+    document.querySelectorAll('.color-background').forEach(span => {
+        span.classList.remove('active');
+    })
+    click.classList.add('active');
+})
