@@ -197,6 +197,7 @@ header form input[type="submit"]{
 
 .toolbar.active {
     background-color: rgb(243, 241, 241);
+    
 }
 .toolbar {
    transition: 0.3s ease;
@@ -212,6 +213,7 @@ header form input[type="submit"]{
     background-color: blue;
     height: 100%;
     width: 4px;
+    transition: 0.3s ease;
 }
 /* .toolbar span{
     padding-left: 2em;
